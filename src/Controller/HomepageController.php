@@ -26,9 +26,10 @@ class HomepageController extends AbstractController
 // Alternatively, wait for an element to be visible
         $crawler = $client->waitForVisibility('#installing-the-framework');
 
-        echo $crawler->filter('#installing-the-framework')->text();
+        $output= $crawler->filter('#installing-the-framework')->text();
         $client->takeScreenshot('screen.png'); // Yeah, screenshot!
-
+        var_dump($output);
+        die;
         return $this->render('homepage/index.html.twig', [
             'controller_name' => 'HomepageController',
         ]);
